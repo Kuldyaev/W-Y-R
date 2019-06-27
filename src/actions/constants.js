@@ -1,0 +1,4 @@
+export const CHANGE_AUTHED = 'CHANGE_AUTHED'
+export const CLEAR_AUTHED = 'CLEAR_AUTHED'
+export const RECEIVE_USERS = 'RECEIVE_USERS'
+export const ADD_NEW_USER = 'ADD_NEW_USER'

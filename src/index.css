@@ -1,0 +1,112 @@
+header{
+	height: 55px;
+	width: 100%;
+	text-align: center;
+	color: white;
+	background-color: black;
+}
+h1, h5, p , ul{
+	margin: 0px;
+}
+h6{
+	font-size: 0.6em;
+	margin: 0px;
+	
+}
+ul{
+	list-style-type: none;
+	display: flex;
+}
+footer{
+	height: 20px;
+	width: 100%;
+	text-align: right;
+	color: white;
+	background-color: black;
+}
+
+.addBook-details{
+	height:100%;
+	width: 60%;
+}
+.addBook-details-item{
+	height:15%;
+	width: 80%;
+	margin-top: 5px;
+}
+.book-image{
+	width: 130px;
+	height: 140px;
+	margin-right: 0px;
+	margin-left: 15px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	flex-shrink: 0;
+}
+.addBook-form{
+	height:70%;
+	width:90%;
+	display: flex;
+}
+#addImage{
+	height: 200px;
+	width: 400px;
+}
+#Load{
+	margin-top: 30px;
+	margin-left: 50px;
+}
+#addBook-button{
+	margin-left: 80px;
+	margin-top: 10px;
+}
+
+/* Blok css for Main page*/
+.booklist-top {
+	height: 32px;
+	width: 100%;
+	display: flex;
+}
+.shell{
+	width: 100%;
+	display: block;
+}
+.title{
+	height: 20px;
+	width: 100%;
+	background-color: grey;
+    display: flex;
+}
+.titlename {
+    height: 100%;
+	width: 70%;
+	margin-left: 10px;
+}
+.bookscounter {
+    height: 100%;
+	width: 30%;
+}
+
+.book-list {
+	width: 100%;
+}
+.bookslist-item {
+	height: 200px;
+	width: 150px;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+.Books-item{
+	width: 110px;
+	height:60px;
+	display: flex;
+}
+.book-author, .book-title{
+	width: 110px;
+	height: 20px;
+}
+.book-remove-blok{
+	height:42px;
+	width:42px;
+	display: block;
+}

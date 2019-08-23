@@ -7,7 +7,7 @@ const Questions  = () =>{
     return(
     <div className='maincontainer'>
         <StatusBar />
-        <h3 id='formtitle'>Cтраница c  вопросами</h3>
+        <h3 id='formtitle'>Questions</h3>
         <QuestionList />
     </div>
     )

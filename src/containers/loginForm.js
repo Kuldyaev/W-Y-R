@@ -18,8 +18,6 @@ class LogForm extends Component{
     
     handleSubmit(event) {
 		event.preventDefault();
-        console.log("Введен логин:",this.state.username);
-        console.log("Введен пароль:",this.state.pass);
         const currName = this.state.username;
         const row = Object.keys(this.props.users).some(function(key){return key === currName});
         if(row){  
@@ -40,6 +38,12 @@ class LogForm extends Component{
 		this.setState({pass: event.target.value});
 		
 	}
+    
+    optionList(){
+        return Object.keys(this.props.users).map((u)=>{
+            return <option value={u} key={u}>{u}</option>
+        })
+    }
  
     
     render(){
@@ -55,12 +59,16 @@ class LogForm extends Component{
                 <form onSubmit={this.handleSubmit} 
                 className='loginForm' 
                 encType='multipart/form-data'>
-                    <input type='text' name='username' placeholder='Username'  className='loginFormItem' onChange={this.handleUsernameChange} />
+                    <input type='text' name='username' placeholder='Username'  list="owners" className='loginFormItem' onChange={this.handleUsernameChange} />
+                    <datalist id="owners">
+                        {this.optionList()}
+                    </datalist>
                     <input type='text' name='password' placeholder='Password' className='loginFormItem' onChange={this.handlePassChange}/>
                     <input type="submit" className='loginFormItem' value="Log in" />
                 </form>
                 <Link className='regLink' to='/reg'>Registration</Link>
             </div>
+           
         )
     }  
 }

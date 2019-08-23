@@ -8,6 +8,8 @@ import Questions from './components/questions'
 import Statistic from './components/statistic'
 import LogForm from './containers/loginForm'
 import RegForm from './containers/regForm'
+import NewQuestion from './containers/newQuestion'
+import Vote from './containers/vote'
 import './App.css'
 
 
@@ -36,6 +38,12 @@ class  App  extends Component {
 				)} />
                 <Route exact path='/questions' render ={() =>(
                     <Questions />
+				)} />
+                <Route path='/questions/:id' render ={() =>(
+                    <Vote />
+				)} />
+                <Route exact path='/newquestion' render ={() =>(
+                    <NewQuestion />
 				)} />
                 <Route exact path='/statistic' render ={() =>(
                     <Statistic />

@@ -4,3 +4,114 @@
     width: 100%;
 
 }
+.create-contact-avatar-input {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  background-image: url('../icons/person.svg');
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#authorBar {
+    width: 100%;
+    height: 15%;
+    display: flex;
+}
+#avaIcon {
+    width: 10%;
+    height: 100%;
+    margin-left: 40%;
+    
+}
+#formtitle2 {
+    width: 40%;
+    height: 100%; 
+    margin-top: 10px;
+}
+#mainquestion {
+    width: 100%;
+    height: 25%;
+    text-align: center; 
+}
+.blockButtons {
+    width: 100%;
+    height: 50%;
+}
+#linkZone {
+    width: 100%;
+    height: 5%;
+    text-align: right; 
+}
+.varButton {
+    height: 70%;
+    width: 35%;
+    margin-left: 10%;   
+    text-align: center;  
+    font-size: 2em;    
+}
+.blokStatistic{
+    width: 100%;
+    height: 100%;
+    
+}
+.informAria{
+    padding-left: 20%;  
+    font-size: 2em; 
+    
+}
+#statTitle{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    padding-left: 0; 
+    font-weight: bold;
+}
+#usersNumTitle{
+    width: 80%;
+    height: 15%;
+}
+#questionsNumTitle{
+    width: 80%;
+    height: 15%; 
+}
+#blokStatUser{
+    width: 80%;
+    height: 30%; 
+}
+#logPageButton{
+    width: 75%;
+    height: 10%; 
+    text-align: right;
+}
+#userQuestQ{
+    width: 100%;
+    height: 50%;
+    padding-left: 0;
+    font-size: 1em; 
+}
+#userAnswQ{
+    width: 100%;
+    height: 50%;
+    padding-left: 0;
+    font-size: 1em;
+}
+.homeblok {
+   width: 80%;
+   height: 70%; 
+   margin-left: 20%;
+   margin-top: 10%;
+}
+

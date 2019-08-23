@@ -1,15 +1,11 @@
-
 import {ADD_NEW_USER} from './constants'
 
-
-
-const addNewUser = (newUser, newPass) => ({
-  type: ADD_NEW_USER,
-  payload: {
-        authSuccess: false,
-        authUser: 0
-        }
+const addNewUser = (newUser, newPass, newAva) => ({
+    type: ADD_NEW_USER,
+    id: newUser,
+    username:newUser,
+    password: newPass,
+    ava: newAva
 })
-
 
 export {addNewUser}

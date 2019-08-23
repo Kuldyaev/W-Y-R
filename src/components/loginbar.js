@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import LogBut from './logbut'
+import AvaIcon from './avatarka'
+import '../components/home.css'
 import {connect} from 'react-redux'
 import {clearAuthedUser} from '../actions/authUser'
 
 class StatusBar extends Component{
-     render(){
-                 
-        const check = this.props.logstat.authUser === 0 
+    render(){
+         const check = this.props.logstat.authUser === 0 
             ? "Log in" 
             : "Log out" 
         
@@ -23,12 +24,13 @@ class StatusBar extends Component{
             if(this.props.logstat.authUser !== 0){clearAuthedUser();}
          }
         
-        
     return(
     <div className='statusbar'>
         <div className='statusitem'>
-            <p>{infoLog}{((this.props.logstat.authUser !==0)&&(this.props.logstat.authUser))}</p>
+            <p className='statusstring'>{infoLog}{((this.props.logstat.authUser !==0)&&(this.props.logstat.authUser))}</p>
         </div>
+        <AvaIcon value= {((this.props.logstat.authUser ===0)&&(' '))|| ((this.props.logstat.authUser !==0)&&(this.props.users[this.props.logstat.authUser].ava)) }
+       />
         <div className='menuitem'>   
            <LogBut 
                 changeStat={changeStat}
@@ -38,9 +40,10 @@ class StatusBar extends Component{
         </div>
         
     </div>
+   
     )
 }}
 
 
 
-export default connect(state=>({logstat: state.status}), {clearAuthedUser})(StatusBar)
+export default connect(state=>({users: state.users,  authUser: state.status, logstat: state.status}), {clearAuthedUser})(StatusBar)

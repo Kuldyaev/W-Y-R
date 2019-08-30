@@ -26,5 +26,14 @@ The project can be viewed in the browser at http://localhost:3000
 
 ![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/1.JPG)
 
+For creating and answering questions you need to log in
+
+![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/2.JPG)
+
+It's possible to create new user
+
+![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/3.JPG)
+
+
 
 

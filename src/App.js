@@ -49,7 +49,7 @@ class  App  extends Component {
                     <Route exact path='/leaderboard' render = {()=>(
                         this.props.authUser !== null 
                             ? (<Home />)
-                            : (<Redirect to='/'/>) 
+                            : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
                      )
                     }/>
                     <Route exact path='/help' component = {HelpPage }/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link,  Redirect, withRouter } from 'react-router-dom'
+import {Link, withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import StatusBar from '../components/loginbar'
 import '../components/home.css'
@@ -21,9 +21,9 @@ class NewQuestion extends Component{
     handleSubmit(event) {
 		event.preventDefault();
         const qid = `f${(+new Date()).toString(16)}`
-        this.props.addNewQuestion(qid, this.props.authUser.authUser, this.state.var1, this.state.var2, Object.keys(this.props.users));
+        this.props.addNewQuestion(qid, this.props.authUser, this.state.var1, this.state.var2, Object.keys(this.props.users));
         alert("New question added successfully");
-        this.props.history.push('/questions')
+        this.props.history.push('/')
     }
 	
 	handleVar1Change(event){
@@ -37,16 +37,12 @@ class NewQuestion extends Component{
  
     
     render(){
-        if (this.props.authUser.authSuccess !== true) {
-            return (
-                <Redirect to='/' />
-            );
-}
-        
-        return(
+      return(
             <div className='maincontainer'>
                 <StatusBar />
                 <h3 id='formtitle'>Questions creation form</h3>
+                <br/>
+                <h1 id='mainquestion'>Would You Rather?</h1>
                 <form onSubmit={this.handleSubmit} 
                 className='loginForm' 
                 encType='multipart/form-data'>
@@ -54,7 +50,7 @@ class NewQuestion extends Component{
                     <input type='text' name='var2' placeholder='Second option' className='loginFormItem' onChange={this.handleVar2Change}/>
                     <input type="submit" className='loginFormItem' value="Submit" />
                 </form>
-                <Link className='regLink' to='/questions'>Back to questions</Link>
+                <Link className='regLink' to='/'>Back to questions</Link>
             </div>
            
         )

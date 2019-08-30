@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link,  Redirect } from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import '../components/home.css'
 import {setAuthedUser} from '../actions/authUser'
@@ -24,6 +24,8 @@ class LogForm extends Component{
             if(this.props.users[this.state.username].password === this.state.pass)
                 {
                     this.props.setAuthedUser(currName);
+                    if (this.props.location.state === undefined){this.props.history.push('/');}
+                    else{this.props.history.push(this.props.location.state.referrer.pathname);}
                 }
             else {alert("Wrong Password")}
             
@@ -47,12 +49,6 @@ class LogForm extends Component{
  
     
     render(){
-        if (this.props.authUser.authSuccess === true) {
-            return (
-                <Redirect to='/' />
-            );
-}
-        
         return(
             <div className='maincontainer'>
                 <h3 id='formtitle'>Login form</h3>
@@ -73,5 +69,5 @@ class LogForm extends Component{
     }  
 }
 
-export default connect(state=>({users: state.users,  authUser: state.status,}), {setAuthedUser})(LogForm)
+export default withRouter(connect(state=>({users: state.users,  authUser: state.status,}), {setAuthedUser})(LogForm))
 

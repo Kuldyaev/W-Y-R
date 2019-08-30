@@ -1,7 +1,6 @@
-import {ADD_NEW_ANSWER, ADD_NEW_LEFT_ANSWER, ADD_NEW_RIGHT_ANSWER} from '../actions/constants'
-import startAnswers from '../store/answers'
+import {ADD_NEW_ANSWER, ADD_NEW_LEFT_ANSWER, ADD_NEW_RIGHT_ANSWER, ADD_INIT_ANSWERS} from '../actions/constants'
 
-const answers = (state = startAnswers, action) => {
+const answers = (state = {}, action) => {
   switch (action.type) {
     case ADD_NEW_ANSWER:
       return {...state, 
@@ -18,7 +17,11 @@ const answers = (state = startAnswers, action) => {
           [action.id]:{...state[action.id],
              var2: state[action.id].var2.concat(action.user)
           }
-      };     
+      }; 
+    case ADD_INIT_ANSWERS:
+      return action.payload       
+         
+       
     default:
       return state
   }

@@ -7,29 +7,29 @@ import {clearAuthedUser} from '../actions/authUser'
 
 class StatusBar extends Component{
     render(){
-         const check = this.props.logstat.authUser === 0 
+         const check = this.props.authUser === null 
             ? "Log in" 
             : "Log out" 
         
-        const checkLink  = this.props.logstat.authUser === 0
+        const checkLink  = this.props.authUser === null
             ?  '/logpage' 
             : '/'
             
-        const infoLog  = this.props.logstat.authUser !== 0
+        const infoLog  = this.props.authUser !== null
             ? 'We glad to see you '
             : 'You are not authorized yet'   
         
         const changeStat = () => {
             const{clearAuthedUser }= this.props;
-            if(this.props.logstat.authUser !== 0){clearAuthedUser();}
+            if(this.props.authUser !== null){clearAuthedUser();}
          }
         
     return(
     <div className='statusbar'>
         <div className='statusitem'>
-            <p className='statusstring'>{infoLog}{((this.props.logstat.authUser !==0)&&(this.props.logstat.authUser))}</p>
+            <p className='statusstring'>{infoLog}{((this.props.authUser !==0)&&(this.props.authUser))}</p>
         </div>
-        <AvaIcon value= {((this.props.logstat.authUser ===0)&&(' '))|| ((this.props.logstat.authUser !==0)&&(this.props.users[this.props.logstat.authUser].ava)) }
+        <AvaIcon value= {((this.props.authUser === null)&&(' '))|| ((this.props.authUser !== null)&&(this.props.users[this.props.authUser].ava)) }
        />
         <div className='menuitem'>   
            <LogBut 
@@ -46,4 +46,4 @@ class StatusBar extends Component{
 
 
 
-export default connect(state=>({users: state.users,  authUser: state.status, logstat: state.status}), {clearAuthedUser})(StatusBar)
+export default connect(state=>({users: state.users,  authUser: state.status}), {clearAuthedUser})(StatusBar)

@@ -4,21 +4,16 @@ import {connect} from 'react-redux'
 import '../components/home.css'
 
 class StatisticList extends Component {
-    
-
-    
-    
-    
  
     render(){
         const { answers } = this.props
         const questionsNum = this.props.questions.length
         const usersNum =  Object.keys(this.props.users).length
        
-        if (this.props.authUser.authSuccess === true) {
-            const creatQArr = this.props.questions.filter(el => el.author === this.props.authUser.authUser);
+        if (this.props.authUser !== null) {
+            const creatQArr = this.props.questions.filter(el => el.author === this.props.authUser);
             
-            const currUser =  this.props.authUser.authUser 
+            const currUser =  this.props.authUser 
             const currArr = Object.keys(this.props.answers)
         
             const answQuestion = currArr.reduce(function(a,c){
@@ -44,7 +39,7 @@ class StatisticList extends Component {
                     <div id='userAnswQ' className='informAria' >You create {creatQArr.length} questions</div>
                 </div> 
                 <div id='logPageButton' className='informAria' >
-                    <Link className='logPageButton' to='/questions'>
+                    <Link className='logPageButton' to='/'>
                         <button>
                              Back to questions 
                         </button>

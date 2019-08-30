@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {Link, Redirect, withRouter } from 'react-router-dom'
+import {Link, withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import '../components/home.css'
 import {addNewUser} from '../actions/users'
@@ -127,12 +127,6 @@ class RegForm extends Component{
             style.backgroundSize = 'cover'
         }
 
-        if (this.props.authUser.authSuccess === true) {
-            return (
-                <Redirect to='/' />
-            );
-        }
-        
         return(
             <div className='maincontainer'>
                 <h3 id='formtitle'>Registration form</h3>

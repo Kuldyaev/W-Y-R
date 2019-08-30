@@ -23,12 +23,14 @@ class QuestionList extends Component {
     
     componentDidMount() {
       const { questions } = this.props
-      this.setState({quest: questions});
+      const questions1 = questions.slice(0);
+      this.setState({quest: questions1});
     }
     
     firstClick(event) {
         const { questions } = this.props
-        const quest1 = questions.filter(el => el.author === this.props.authUser.authUser);
+        const questions1 = questions.slice(0);
+        const quest1 = questions1.filter(el => el.author === this.props.authUser);
 		if (quest1.length > 0){       
             this.setState({btn: '1',
                             btn1: 'white',
@@ -53,11 +55,12 @@ class QuestionList extends Component {
     
     secondClick(event) {
         const { questions, answers } = this.props
+        const questions1 = questions.slice(0)
         if (Object.keys(answers).length > 0) {
-        const item = this.props.authUser.authUser
+        const item = this.props.authUser
         const x = Object.keys(this.props.answers)
         const xx = x.filter(el => (answers[el].var1.includes(item) || answers[el].var2.includes(item)));
-        const quest2 = questions.filter(q => xx.includes(q.id))
+        const quest2 = questions1.filter(q => xx.includes(q.id))
         
         this.setState({btn: '2',
                         btn1: '#E4E4E7',
@@ -75,7 +78,7 @@ class QuestionList extends Component {
                         btn2: 'white',
                         btn3: '#E4E4E7',
                         btn4: '#E4E4E7',
-                        quest: questions,
+                        quest: questions1,
                         page: 'empty',
             });
         }
@@ -83,11 +86,12 @@ class QuestionList extends Component {
     
     therdClick(event) {
         const { questions, answers } = this.props
+        const questions1 = questions.slice(0)
         if (Object.keys(answers).length > 0) {
-            const item = this.props.authUser.authUser
+            const item = this.props.authUser
             const x = Object.keys(this.props.answers)
             const xx = x.filter(el => (answers[el].var1.includes(item) || answers[el].var2.includes(item)));
-            const quest3 = questions.filter(q => (!(xx.includes(q.id))))
+            const quest3 = questions1.filter(q => (!(xx.includes(q.id))))
             if (xx.length === questions.length){
                 this.setState({btn: '3',
                             btn1: '#E4E4E7',
@@ -116,7 +120,7 @@ class QuestionList extends Component {
                         btn2: '#E4E4E7',
                         btn3: 'white',
                         btn4: '#E4E4E7',
-                        quest: questions,
+                        quest: questions1,
                         page: 'full',
                         
             });
@@ -125,12 +129,13 @@ class QuestionList extends Component {
     
     forthClick(event) {
         const { questions } = this.props
+        const questions1 = questions.slice(0);
 		this.setState({btn: '3',
                         btn1: '#E4E4E7',
                         btn2: '#E4E4E7',
                         btn3: '#E4E4E7',
                         btn4: 'white',
-                        quest: questions,
+                        quest: questions1,
                         page: 'full',
                         
         });
@@ -138,8 +143,8 @@ class QuestionList extends Component {
     
  
     showList(){
-        if(this.state.page === 'full') { 
-        return this.state.quest.map((q)=>{
+        if(this.state.page === 'full') {
+        return this.state.quest.reverse().map((q)=>{
             return(
                 <Link className='voteicon' to={`/questions/${q.id}`} key={q.id}>
                     <li key={q.id} className='showQuestionItem'>
@@ -155,18 +160,14 @@ class QuestionList extends Component {
         }
         else{
             return(
-                <p> Страница пуста. Нет данных для отображения.</p>
+                <p> The page is empty. No data for showing.</p>
             )    
         }
     }
     
     render(){
         const { btn1, btn2, btn3, btn4 } = this.state
-//        console.log(this.props.questions);
-//        console.log(this.props.authUser);
- //       console.log(Object.keys(this.props.answers).length);
-
-        if (this.props.authUser.authSuccess === true) {
+        if (this.props.authUser !== null) {
             return (
             <div className='questions'>
                 <div className='btnsBoard'>
@@ -193,7 +194,7 @@ class QuestionList extends Component {
                         {this.showList()}
                     </ul>
                     <div id='logPageButton' className='informAria' >
-                        <Link className='logPageButton' to='/newquestion'>
+                        <Link className='logPageButton' to='/add'>
                             <button>
                                 Add question 
                             </button>

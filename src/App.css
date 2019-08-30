@@ -106,31 +106,42 @@ footer{
 }
 .voteicon{
     width: 200px;
-    height: 100px;
+    height: 120px;
     flex-shrink: 0;
     margin-left: 2%;
+    margin-top:1%;
     border: 1px solid;
     border-color: black;
     background-color: #E4E4E7; 
     float: left;
     color: #E4E4E7;
 }
-.blokQuestion, .blokVariants{
+.blokVariants{
     width: 100%;
-    height: 50px; 
+    height: 70%; 
     flex-shrink: 0;
     padding-top: 10px;
     color: black;
+    
 }
+
 .blokQuestion{
+    width: 100%;
+    height: 30%; 
+    flex-shrink: 0;
+    padding-top: 10px;
+    color: black;
     padding-left: 15%;
     text-decoration: none;
+    
 }
 button.btnVariant{
     width: 95px;
+    height: 70px;
     margin-left: 3px;
     background-color: grey;
     color: white;
+    vertical-align: top;
 }
 .regLink{
     margin-left: 55%;

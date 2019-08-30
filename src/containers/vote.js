@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, Redirect, withRouter } from 'react-router-dom'
+import {Link, withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import '../components/home.css'
 import AvaIcon from '../components/avatarka'
@@ -27,19 +27,19 @@ class Vote extends Component{
     leftClick(event) {
 		event.preventDefault();
         const answkeys = Object.keys(this.props.answers)
-        const item = this.props.authUser.authUser
+        const item = this.props.authUser
         if(answkeys.includes(String(this.state.idQuestion))) {
             if(this.props.answers[String(this.state.idQuestion)].var1.includes(item) || this.props.answers[String(this.state.idQuestion)].var2.includes(item)){
-                this.props.history.push('/questions');
+                this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
             }
             else{
             this.props.addNewLeftAnswer(String(this.state.idQuestion), item)
-            this.props.history.push('/questions');
+            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
             }
         }
         else{
             this.props.addNewAnswer(String(this.state.idQuestion), [item],[]);
-            this.props.history.push('/questions');
+            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
         }    
         
         
@@ -49,38 +49,29 @@ class Vote extends Component{
     rightClick(event) {
 		event.preventDefault();
         const answkeys = Object.keys(this.props.answers)
-        const item = this.props.authUser.authUser
+        const item = this.props.authUser
         if(answkeys.includes(String(this.state.idQuestion))) {
             if(this.props.answers[String(this.state.idQuestion)].var1.includes(item) || this.props.answers[String(this.state.idQuestion)].var2.includes(item)){
-                this.props.history.push('/questions');
+                this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
             }
             else{
             this.props.addNewRightAnswer(String(this.state.idQuestion), item)
-            this.props.history.push('/questions');
+            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
             }
         }
         else{
             this.props.addNewAnswer(String(this.state.idQuestion), [],[item]);
-            this.props.history.push('/questions');
+            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
         }    
  	}
 	
 
     render(){
-        
-        
         const {users, questions } = this.props
-
-        if (this.props.authUser.authSuccess !== true) {
-            return (
-                <Redirect to='/' />
-            );
-        }
-        
         return(
             <div className='maincontainer'>
                 <div id='authorBar'>    
-                    <div id='avaIcon'><AvaIcon value= {users[questions[this.state.ixQuestion].author].ava} /></div>
+                    <div id='avaIcon'><AvaIcon value= {users[Object.keys(users).filter(k => users[k].id === questions[this.state.ixQuestion].author)[0]].ava} /></div>
                     <h3 id='formtitle2'>{questions[this.state.ixQuestion].author} asks:</h3>
                 </div>    
                 <h1 id='mainquestion'>Would You Rather?</h1>
@@ -88,7 +79,7 @@ class Vote extends Component{
                     <button className='varButton' onClick={this.leftClick}>{questions[this.state.ixQuestion].var1}</button>
                     <button className='varButton' onClick={this.rightClick}>{questions[this.state.ixQuestion].var2}</button>
                 </div>
-                <div id='linkZone'><Link className='regLink' id='linkBack' to='/questions'>Back to questions</Link></div>
+                <div id='linkZone'><Link className='regLink' id='linkBack' to='/'>Back to questions</Link></div>
             </div>
            
         )

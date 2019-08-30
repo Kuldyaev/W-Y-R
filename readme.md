@@ -20,11 +20,9 @@ Here a user answers questions based on two options given.
 
 1.4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-  
-
-
-Usage
+ ## Using 
 
 The project can be viewed in the browser at http://localhost:3000
 
-At this time, the app does not use a real database. Changes will not persist between sessions.
+
+

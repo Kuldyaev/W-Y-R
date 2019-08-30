@@ -4,19 +4,24 @@ This is "Would You Rather" project in React&Redux  course from UDACITY.
 
 Here a user answers questions based on two options given.
 
-To join us You need to register.
+## Installing
+1.1. Clone information from this repositorie
 
-After authorization, you can create your own questions and answer existing ones.
+             git clone https://github.com/Kuldyaev/W-Y-R ['name new directorie']
+             
+1.2. Install packages
 
-Additional information can be found on the help page.
+            cd ['name new directorie']
+            npm install
+            
+1.3. In the project directory, you can run:
 
-Instalation
+            $/[name of project]:  npm start
 
-1: Clone this project git clone https://github.com/Kuldyaev/W-Y-R
+1.4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-2: Install all project dependencies (via npm) "npm install"
+  
 
-3: Start the development server "npm start"
 
 Usage
 

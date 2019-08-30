@@ -1,7 +1,7 @@
-Hello!
+# W-Y-R
+## Project of UDACITY React Nanodegree Program
 
 This is "Would You Rather" project in React&Redux  course from UDACITY.
-
 Here a user answers questions based on two options given.
 
 ## Installing

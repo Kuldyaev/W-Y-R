@@ -24,5 +24,7 @@ Here a user answers questions based on two options given.
 
 The project can be viewed in the browser at http://localhost:3000
 
+![demo](https://github.com/Kuldyaev/memorygame/blob/master/img/demo.gif)
+
 
 

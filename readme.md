@@ -34,6 +34,14 @@ It's possible to create new user
 
 ![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/3.JPG)
 
+After authentification process there is access to voting.  
+
+![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/4.JPG)
+
+By selecting one of the options you will get statistics  on this question
+
+![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/5.JPG)
+
 
 
 

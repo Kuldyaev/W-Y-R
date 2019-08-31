@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import '../components/home.css'
 import AvaIcon from '../components/avatarka'
 import {addNewAnswer, addNewLeftAnswer, addNewRightAnswer} from '../actions/answers'
+import {handleVoteLeftBtn, handleVoteRightBtn} from '../actions/sendAnswer'
 
 class Vote extends Component{
     constructor(props){
@@ -33,11 +34,13 @@ class Vote extends Component{
                 this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
             else{
-            this.props.addNewLeftAnswer(String(this.state.idQuestion), item)
-            this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
+                this.props.handleVoteLeftBtn(item, String(this.state.idQuestion), "optionOne");
+                this.props.addNewLeftAnswer(String(this.state.idQuestion), item)
+                this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
         }
         else{
+            this.props.handleVoteLeftBtn(item, String(this.state.idQuestion), "optionOne");
             this.props.addNewAnswer(String(this.state.idQuestion), [item],[]);
             this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
         }    
@@ -55,11 +58,13 @@ class Vote extends Component{
                 this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
             else{
+            this.props.handleVoteRightBtn(item, String(this.state.idQuestion), "optionTwo");    
             this.props.addNewRightAnswer(String(this.state.idQuestion), item)
             this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
         }
         else{
+            this.props.handleVoteRightBtn(item, String(this.state.idQuestion), "optionTwo");
             this.props.addNewAnswer(String(this.state.idQuestion), [],[item]);
             this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
         }    
@@ -86,4 +91,5 @@ class Vote extends Component{
     }  
 }
 
-export default withRouter(connect (state=>({answers: state.answers, users: state.users,  authUser: state.status, questions: state.questions}), {addNewAnswer, addNewLeftAnswer, addNewRightAnswer})(Vote))
+export default withRouter(connect (state=>({answers: state.answers, users: state.users,  authUser: state.status, questions: state.questions}), 
+                {addNewAnswer, addNewLeftAnswer, addNewRightAnswer, handleVoteLeftBtn, handleVoteRightBtn})(Vote))

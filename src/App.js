@@ -19,75 +19,109 @@ import {handleInitialLoad} from './actions/initialLoad'
 
 
 class  App  extends Component {
+    constructor(props){
+		super(props);
+		this.state={
+			loading : 'true',
+         };
+    }     
+    
     componentDidMount() {
+        this.welcome();
         this.props.handleInitialLoad()
     }
     
+    welcome(){ setTimeout(() => {
+        this.setState({loading : 'false'});
+    }, 1200)}
+    
+
+    
 	render(){
         const { questions, answers } = this.props
-		return (
-			<div className="App" id='telo'>
-				<header>
-					<h1>My Application</h1>
-				</header>
-                <MenuBar />
-                <LoadingBar />
-                <Switch>
-                    <Route exact path='/' component = {Questions}/>
-                    <Route exact path='/logpage'  render = {()=>(
-                        this.props.authUser === null 
-                            ? (<LogForm />)
-                            : (<Redirect to='/'/>)     
-                     )
-                    }/>
-                    <Route exact path='/reg'  render = {()=>(
-                       this.props.authUser !== null 
-                            ? (<Redirect to='/'/>)
-                            : (<RegForm/>)
-                     )   
-                    }/>
-                    <Route exact path='/leaderboard' render = {()=>(
-                        this.props.authUser !== null 
-                            ? (<Home />)
-                            : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
-                     )
-                    }/>
-                    <Route exact path='/help' component = {HelpPage }/>
-                    <Route path='/questions/:id' render = {()=>(
-                        this.props.authUser !== null 
-                            ? ( questions.findIndex(q => q.id===this.props.location.pathname.substring(11)) < 0 
-                                 ? (<NotFound />)
-                                 : (Object.keys(answers).length > 0
-                                       ? ( Object.keys(answers).includes(this.props.location.pathname.substring(11))
-                                               ? ( (answers[String(this.props.location.pathname.substring(11))].var1.includes(this.props.authUser) || answers[this.props.location.pathname.substring(11)].var2.includes(this.props.authUser))
-                                                    ? (<Info />)
-                                                    : (<Vote />)
-                                               )
-                                               : (<Vote />)
-                                       )
-                                       : (<Vote />)
-                                    )
-                              )
-                            : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
-                       )  
-                    } />
-                    <Route exact path='/add' render ={()=>(
-                        this.props.authUser !== null 
-                            ? (<NewQuestion/>)
-                            : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
-                     )
-                    }/>
-                    <Route exact path='/statistic' component ={Statistic}/>
-                    <Route component={NotFound} />
-                </Switch>
-				<footer>
-					<p id='creator'>Created by&nbsp;    
-                        <a className='authorPage' href='http://www.kuldyaev.ru'>
-                          Viacheslav Kuldyaev</a>
-                    </p>
-				</footer>
-			</div>
-		);}
+        if(this.state.loading === 'false'){
+            return (
+                <div className="App" id='telo'>
+                    <header>
+                        <h1>My Application</h1>
+                    </header>
+                    <MenuBar />
+                    <LoadingBar />
+                    <Switch>
+                        <Route exact path='/' component = {Questions}/>
+                        <Route exact path='/logpage'  render = {()=>(
+                            this.props.authUser === null 
+                                ? (<LogForm />)
+                                : (<Redirect to='/'/>)     
+                         )
+                        }/>
+                        <Route exact path='/reg'  render = {()=>(
+                           this.props.authUser !== null 
+                                ? (<Redirect to='/'/>)
+                                : (<RegForm/>)
+                         )   
+                        }/>
+                        <Route exact path='/leaderboard' render = {()=>(
+                            this.props.authUser !== null 
+                                ? (<Home />)
+                                : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
+                         )
+                        }/>
+                        <Route exact path='/help' component = {HelpPage }/>
+                        <Route path='/questions/:id' render = {()=>(
+                            this.props.authUser !== null 
+                                ? ( questions.findIndex(q => q.id===this.props.location.pathname.substring(11)) < 0 
+                                     ? (<NotFound />)
+                                     : (Object.keys(answers).length > 0
+                                           ? ( Object.keys(answers).includes(this.props.location.pathname.substring(11))
+                                                   ? ( (answers[String(this.props.location.pathname.substring(11))].var1.includes(this.props.authUser) || answers[this.props.location.pathname.substring(11)].var2.includes(this.props.authUser))
+                                                        ? (<Info />)
+                                                        : (<Vote />)
+                                                   )
+                                                   : (<Vote />)
+                                           )
+                                           : (<Vote />)
+                                        )
+                                  )
+                                : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
+                           )  
+                        } />
+                        <Route exact path='/add' render ={()=>(
+                            this.props.authUser !== null 
+                                ? (<NewQuestion/>)
+                                : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
+                         )
+                        }/>
+                        <Route exact path='/statistic' component ={Statistic}/>
+                        <Route component={NotFound} />
+                    </Switch>
+                    <footer>
+                        <p id='creator'>Created by&nbsp;    
+                            <a className='authorPage' href='http://www.kuldyaev.ru'>
+                              Viacheslav Kuldyaev</a>
+                        </p>
+                    </footer>
+                </div>
+            )
+        }
+        else{
+            return(
+            <div className="App" id='telo'>
+                    <header>
+                        <h1>My Application</h1>
+                    </header>
+                    <MenuBar />
+                    <LoadingBar />
+                    <h1 id='welcome'>Welcome!</h1>
+                    <footer>
+                        <p id='creator'>Created by&nbsp;    
+                            <a className='authorPage' href='http://www.kuldyaev.ru'>
+                              Viacheslav Kuldyaev</a>
+                        </p>
+                    </footer>
+                </div>
+            )
+        };}
 }
 
 function mapStateToProps (store){

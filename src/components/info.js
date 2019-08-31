@@ -10,7 +10,7 @@ class Info extends Component{
 		super(props);
 		this.state={
 			idQuestion : '6',
-            ixQuestion : '6',
+            ixQuestion : '0',
         };
     }
     
@@ -26,9 +26,7 @@ class Info extends Component{
         const {users, questions, answers, authUser } = this.props
         const a1 = answers[String(this.props.match.params.id)].var1.length
         const a2 = answers[String(this.props.match.params.id)].var2.length
-          console.log(this.state.idQuestion, this.state.ixQuestion)
-        
-        
+
         const style1 = ( answers[this.props.match.params.id].var1.includes(authUser)
                             ? {backgroundColor: 'green'}
                             : {backgroundColor: '#E4E4E7'}

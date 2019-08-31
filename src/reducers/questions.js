@@ -1,7 +1,6 @@
-import startQuestions from '../store/questions'
 import {ADD_NEW_QUESTION, ADD_INIT_QUESTIONS} from '../actions/constants'
 
-const questions = (state = startQuestions, action) => {
+const questions = (state = [], action) => {
   switch (action.type) {
     case ADD_NEW_QUESTION:
       return state.concat(action.payload)

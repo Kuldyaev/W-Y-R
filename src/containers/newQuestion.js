@@ -3,7 +3,7 @@ import {Link, withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import StatusBar from '../components/loginbar'
 import '../components/home.css'
-import {addNewQuestion} from '../actions/questions'
+import {handleSaveQuestion} from '../actions/sendQuestion'
 
 
 class NewQuestion extends Component{
@@ -21,7 +21,7 @@ class NewQuestion extends Component{
     handleSubmit(event) {
 		event.preventDefault();
         const qid = `f${(+new Date()).toString(16)}`
-        this.props.addNewQuestion(qid, this.props.authUser, this.state.var1, this.state.var2, Object.keys(this.props.users));
+        this.props.handleSaveQuestion(qid,  this.state.var1, this.state.var2, this.props.authUser);
         alert("New question added successfully");
         this.props.history.push('/')
     }
@@ -57,5 +57,5 @@ class NewQuestion extends Component{
     }  
 }
 
-export default withRouter(connect(state=>({users: state.users, questions: state.questions,  authUser: state.status,}), {addNewQuestion})(NewQuestion))
+export default withRouter(connect(state=>({users: state.users, questions: state.questions,  authUser: state.status,}), {handleSaveQuestion})(NewQuestion))
 

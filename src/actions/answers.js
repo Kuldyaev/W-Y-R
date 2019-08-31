@@ -42,6 +42,8 @@ const addInitAnswers = (questions) => ({
     payload: transform(questions)
 })
 
+
+
 export {addNewAnswer, addNewLeftAnswer, addNewRightAnswer, addInitAnswers}
 
 

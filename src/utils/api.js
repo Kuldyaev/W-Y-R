@@ -15,11 +15,11 @@ export function getInitialData() {
     ).then(data => data)
 }
 
-export function saveQuestion(question) {
-    return _saveQuestion(question)
+export function saveQuestion(qid, optionOneText, optionTwoText, author) {
+    return _saveQuestion(qid, optionOneText, optionTwoText, author)
 }
 
-export function saveQuestionAnswer(question) {
-    return _saveQuestionAnswer(question)
+export function saveQuestionAnswer({authedUser, qid, answer}) {
+       return _saveQuestionAnswer({authedUser, qid, answer})
 }
 

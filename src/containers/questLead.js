@@ -14,7 +14,6 @@ const QuestionLead  = (props) =>{
         ])
         return user
     })
-    console.log(questLine)
     questLine.sort( (a, b) => (b[1]+b[2]) - (a[1]+a[2]) ) 
     if(questLine.length > 3){questLine.splice(3,questLine.length-3)}
     

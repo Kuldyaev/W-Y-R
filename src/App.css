@@ -160,3 +160,8 @@ button.btnVariant{
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
+#welcome{
+    margin-top: 20%;
+    margin-left: 45%;
+    margin-bottom: 40%;
+}

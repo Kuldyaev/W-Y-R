@@ -18,7 +18,7 @@
 .user-avatar {
   width: 40px;
   height: 40px;
- 
+  margin-left: 40%;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -129,10 +129,70 @@
    font-weight: bold;
 }
 .homeblokitem {
-   width: 30%;
+   width: 22%;
    height: 90%;
    margin-left: 3%; 
    margin-top: 2%;
    text-align: center;
    background-color: grey;
+}
+.homeblokitem1 {
+   width: 73%;
+   height: 90%;
+   margin-left: 3%; 
+   margin-top: 2%;
+   text-align: center;
+   background-color: #F5F4F4;
+}
+.leader{
+   width: 100%;
+   height: 100%;
+}
+.leader2 {
+   width: 100%;
+   height: 100%;
+   display: flex;   
+}
+.leaderitem{
+   width: 33.3%;
+   height: 100%;  
+}
+.leaderInfo{
+   width: 100%;
+   height: 33%;
+}
+.leaderPlace{
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.leaderSpace{
+    width: 100%;
+    
+}
+#leaderSpace1{
+   height: 21% 
+}
+#leaderPlace1{
+    height: 46%;
+}
+#leaderSpace3{
+   height: 37% 
+}
+#leaderPlace3{
+    height: 30%
+}
+#leaderSpace2{
+   height: 29% 
+}
+#leaderPlace2{
+    height: 38%
+}
+.leaderPlace h3{
+    font-size: 4em;
+}
+.leaderName{
+   font-weight: bold;
 }

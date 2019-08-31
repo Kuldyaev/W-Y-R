@@ -5,19 +5,22 @@ const AnswerLead  = (props) =>{
     if(Object.keys(props.answers).length > 0){
         const answLine = []
         Object.keys(props.users).map((user)=>{
-            answLine.push([user, Object.keys(props.answers).filter(a => (props.answers[a].var1.includes(user) || props.answers[a].var2.includes(user))).length])
+            answLine.push([user, 
+                            Object.keys(props.answers).filter(a => (props.answers[a].var1.includes(user) || props.answers[a].var2.includes(user))).length,
+                            props.questions.filter(q => q.author===props.users[user].id).length
+                            ])
             return user
         })
-        answLine.sort( (a, b) => b[1] - a[1] ) 
-        if( answLine.length > 5){answLine.splice(5, answLine.length-5)}
+        answLine.sort( (a, b) => (b[1]+b[2]) - (a[1]+a[2]) ) 
+        if( answLine.length > 10){answLine.splice(10, answLine.length-10)}
         
         const showTop = answLine.map((q)=>{
-            return(<p key={q[0]}>{props.users[q[0]].username} answered on {q[1]} questions</p>)
+            return(<p key={q[0]}>{props.users[q[0]].username}</p>)
         })
         
         return(
             <div className='leader'>
-                <p>Top active users</p>
+                <p>active users list</p>
                 <br/>
                 <br/>
                 {showTop}
@@ -27,7 +30,7 @@ const AnswerLead  = (props) =>{
     else{
         return(
             <div className='leader'>
-                <p>Top active users</p>
+                <p>active users list</p>
                 <br/>
                 <p>We don't have enough data</p>
             </div>

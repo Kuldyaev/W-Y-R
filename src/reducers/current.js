@@ -1,8 +1,6 @@
 import {ADD_NEW_USER, ADD_INIT_USERS} from '../actions/constants'
-import startUsers from '../store/users'
 
-
-const users = (state = startUsers, action) => {
+const users = (state = {}, action) => {
   switch (action.type) {
     case ADD_NEW_USER:
       return {...state, 

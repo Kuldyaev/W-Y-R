@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import QuestionLead from '../containers/questLead'
 import AnswerLead from '../containers/answLead'
-import TopQuestions from '../containers/topQuest'
+
 import StatusBar from './loginbar'
 import './home.css'
 
@@ -12,11 +12,8 @@ const Home  = () =>{
     <div className='maincontainer'>
         <StatusBar />
         <div className='homeblok'>
-            <div className='homeblokitem'>
+            <div className='homeblokitem1'>
                 <QuestionLead />
-            </div>
-            <div className='homeblokitem'>
-                <TopQuestions />
             </div>
             <div className='homeblokitem'>
                 <AnswerLead />

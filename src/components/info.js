@@ -9,8 +9,8 @@ class Info extends Component{
     constructor(props){
 		super(props);
 		this.state={
-			idQuestion : '2',
-            ixQuestion : '2',
+			idQuestion : '6',
+            ixQuestion : '6',
         };
     }
     
@@ -23,9 +23,23 @@ class Info extends Component{
     }
     
     render(){
-        const {users, questions, answers } = this.props
+        const {users, questions, answers, authUser } = this.props
         const a1 = answers[String(this.props.match.params.id)].var1.length
         const a2 = answers[String(this.props.match.params.id)].var2.length
+          console.log(this.state.idQuestion, this.state.ixQuestion)
+        
+        
+        const style1 = ( answers[this.props.match.params.id].var1.includes(authUser)
+                            ? {backgroundColor: 'green'}
+                            : {backgroundColor: '#E4E4E7'}
+                        )
+        const style2 = ( answers[this.props.match.params.id].var2.includes(authUser)
+                            ? {backgroundColor: 'green'}
+                            : {backgroundColor: '#E4E4E7'}
+                        )               
+                        
+      
+        
         return(
             <div className='maincontainer'>
                 <div id='authorBar'>    
@@ -34,14 +48,14 @@ class Info extends Component{
                 </div>    
                 <h1 id='mainquestion'>Would You Rather?</h1>
                 <div className='blockButtons'>
-                    <div className='varButton'>
+                    <div className='varButton' style = {style1}>
                         <p className='varButtonText1' >option 1</p>
                         <p className='varButtonText2'>{questions[this.state.ixQuestion].var1}</p>
                         <p className='varButtonText1'>was chosen {a1} users</p>
                         <p className='varButtonText2'>{Math.round(a1/(a1+a2)*100)}%</p>
                         
                     </div>
-                    <div className='varButton'>
+                    <div className='varButton' style = {style2}>
                         <p className='varButtonText1' >option 2</p>
                         <p className='varButtonText2'>{questions[this.state.ixQuestion].var2}</p>
                         <p className='varButtonText1'>was chosen {a2} users</p>

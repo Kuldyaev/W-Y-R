@@ -60,7 +60,7 @@ class  App  extends Component {
                                  : (Object.keys(answers).length > 0
                                        ? ( Object.keys(answers).includes(this.props.location.pathname.substring(11))
                                                ? ( (answers[String(this.props.location.pathname.substring(11))].var1.includes(this.props.authUser) || answers[this.props.location.pathname.substring(11)].var2.includes(this.props.authUser))
-                                                    ? (<Redirect to={`/answers/${this.props.location.pathname.substring(11)}`}/>)
+                                                    ? (<Info />)
                                                     : (<Vote />)
                                                )
                                                : (<Vote />)
@@ -68,15 +68,6 @@ class  App  extends Component {
                                        : (<Vote />)
                                     )
                               )
-                            : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
-                       )  
-                    } />
-                    <Route path='/answers/:id' render = {()=>(
-                        this.props.authUser !== null 
-                            ? ( questions.findIndex(q => q.id===this.props.location.pathname.substring(9)) < 0
-                                 ? (<NotFound />)
-                                 : (<Info />)
-                            )
                             : (<Redirect to={{pathname: "/logpage", state: { referrer: this.props.location }}}/>) 
                        )  
                     } />

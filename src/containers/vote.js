@@ -30,16 +30,16 @@ class Vote extends Component{
         const item = this.props.authUser
         if(answkeys.includes(String(this.state.idQuestion))) {
             if(this.props.answers[String(this.state.idQuestion)].var1.includes(item) || this.props.answers[String(this.state.idQuestion)].var2.includes(item)){
-                this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+                this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
             else{
             this.props.addNewLeftAnswer(String(this.state.idQuestion), item)
-            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+            this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
         }
         else{
             this.props.addNewAnswer(String(this.state.idQuestion), [item],[]);
-            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+            this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
         }    
         
         
@@ -52,16 +52,16 @@ class Vote extends Component{
         const item = this.props.authUser
         if(answkeys.includes(String(this.state.idQuestion))) {
             if(this.props.answers[String(this.state.idQuestion)].var1.includes(item) || this.props.answers[String(this.state.idQuestion)].var2.includes(item)){
-                this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+                this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
             else{
             this.props.addNewRightAnswer(String(this.state.idQuestion), item)
-            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+            this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
             }
         }
         else{
             this.props.addNewAnswer(String(this.state.idQuestion), [],[item]);
-            this.props.history.push(`/answers/${String(this.state.idQuestion)}`);
+            this.props.history.push(`/questions/${String(this.state.idQuestion)}`);
         }    
  	}
 	

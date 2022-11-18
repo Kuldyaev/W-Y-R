@@ -41,7 +41,3 @@ After authentification process there is access to voting.
 By selecting one of the options you will get statistics  on this question
 
 ![demo](https://github.com/Kuldyaev/W-Y-R/blob/master/src/icons/5.JPG)
-
-
-
-
